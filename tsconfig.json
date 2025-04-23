@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "declaration": true,                  // Generate .d.ts files
+    "declarationDir": "./dist/types",      // Output directory for type declarations
+    "outDir": "./dist",                    // Directory for transpiled JavaScript code
+    "rootDir": "./src",                    // Root directory for source files
+    "target": "ESNext",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"],               // Include all .ts files in src directory
+  "exclude": ["node_modules"]               // Exclude node_modules
+}
