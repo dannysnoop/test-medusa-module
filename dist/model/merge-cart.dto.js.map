@@ -1,0 +1,1 @@
+{"version":3,"file":"merge-cart.dto.js","sourceRoot":"","sources":["../../src/model/merge-cart.dto.ts"],"names":[],"mappings":";;;AACA,MAAa,eAAe;IAC1B,UAAU,CAAqB;IAE/B,YAAY,CAAqB;CAClC;AAJD,0CAIC","sourcesContent":["\r\nexport class MergeCartParams {\r\n  to_cart_id: string | undefined;\r\n\r\n  from_cart_id: string | undefined;\r\n}\r\n"]}
