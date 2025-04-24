@@ -14,8 +14,8 @@ import { JWTPayload } from 'jose';
 
 
 export const checkGuestCustomer = (
-    req: MedusaRequest<StorePostCartsCartReq>,
-    res: MedusaResponse,
+    req: any,
+    res: any,
     next: MedusaNextFunction,
 ): void => {
     try {
