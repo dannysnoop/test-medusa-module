@@ -164,3 +164,4 @@ export class GuestCartModuleService extends TransactionBaseService {
     }
 }
 }
+export default GuestCartModuleService;

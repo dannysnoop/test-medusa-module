@@ -14,5 +14,7 @@ declare module 'guest-cart-medusa' {
       createCustomerJwt(customerId: string, is_guest?: boolean): Promise<string>;
       getUserByDeviceId(device_id: string): Promise<any | null>;
     }
+    export function createGuestUser(  req: MedusaRequest<CreateTempCustomerWithCartDTO>,  res: MedusaResponse): Promise<void>;
+    export function mergeCart(  req: MedusaRequest<MergeCartParams>,  res: MedusaResponse): Promise<void>;
   }
   

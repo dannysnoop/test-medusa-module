@@ -108,4 +108,5 @@ class GuestCartModuleService extends medusa_1.TransactionBaseService {
     };
 }
 exports.GuestCartModuleService = GuestCartModuleService;
+exports.default = GuestCartModuleService;
 //# sourceMappingURL=guest-cart.js.map

@@ -25,4 +25,4 @@ export declare class GuestCartModuleService extends TransactionBaseService {
     private getUserByDeviceId;
     MergeCart: (data: MergeCartParams, customer_id?: string) => Promise<import("@medusajs/medusa").WithRequiredProperty<import("@medusajs/medusa").Cart, "total">>;
 }
-export {};
+export default GuestCartModuleService;
