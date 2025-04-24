@@ -53,16 +53,25 @@ export class GuestCartModuleService extends TransactionBaseService {
   }
 
   async createTempCustomerWithCart(
-    params: CreateTempCustomerWithCartDTO,
-    req: MedusaRequest
+      params: CreateTempCustomerWithCartDTO,
+      req: MedusaRequest
   ): Promise<{ access_token: string }> {
+    if (!params) {
+      throw new Error('Params are required');
+    }
+
     const { device_id, region_id } = params;
+
+    if (!device_id) {
+      throw new Error('Device ID is required');
+    }
+
+    if (!region_id) {
+      throw new Error('Region ID is required');
+    }
 
     let region: Region | null = await this.cacheService_.get(`region:${region_id}`);
     if (!region) {
-      if (!region_id) {
-        throw new Error('Region ID is required');
-      }
       region = await this.regionService_.retrieve(region_id);
       if (!region || region.metadata?.enable_guest_user !== 'true') {
         throw new Error('Region not supported for guest customer');
@@ -72,9 +81,6 @@ export class GuestCartModuleService extends TransactionBaseService {
       region = JSON.parse(JSON.stringify(region)); // Ensure proper type handling
     }
 
-    if (!device_id) {
-      throw new Error('Device ID is required');
-    }
     let customer = await this.getUserByDeviceId(device_id);
     if (!customer) {
       const tempIdentifier = Math.floor(Math.random() * 1000000);
