@@ -6,9 +6,9 @@ import { mergeCart } from "../guest-cart/merge-cart";
 const route = Router();
 
 const setupRoutes = (app: Application): Application => {
-    app.use("/api", route);
-    route.post("/create-guest-user", createGuestUser);
-    route.post("/merge-cart", mergeCart);
+    app.use("/store", route);
+    route.post("/guest-cart", createGuestUser);
+    route.post("/guest-cart/merge-cart", mergeCart);
     return app;
 };
 
