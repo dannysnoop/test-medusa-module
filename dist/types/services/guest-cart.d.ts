@@ -23,6 +23,6 @@ export declare class GuestCartModuleService extends TransactionBaseService {
     }>;
     createCustomerJwt(customerId: string, is_guest?: boolean): Promise<string>;
     private getUserByDeviceId;
-    MergeCart: (data: MergeCartParams, customer_id?: string) => Promise<import("@medusajs/medusa").WithRequiredProperty<import("@medusajs/medusa").Cart, "total">>;
+    MergeCart: (data: MergeCartParams) => Promise<import("@medusajs/medusa").WithRequiredProperty<import("@medusajs/medusa").Cart, "total">>;
 }
 export default GuestCartModuleService;

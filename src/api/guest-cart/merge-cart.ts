@@ -34,10 +34,9 @@ export async function mergeCart(
     );
 
     const params = medusaReq.body;
-    const customer_id = medusaReq.user?.customer_id;
 
     // Call the mergeCarts method
-    const mergedCart = await guestCartService.MergeCart(params, customer_id);
+    const mergedCart = await guestCartService.MergeCart(params);
 
     // Respond with the merged cart
     res.status(200).json({ data: mergedCart });

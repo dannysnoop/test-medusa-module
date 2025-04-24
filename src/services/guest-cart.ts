@@ -126,26 +126,19 @@ export class GuestCartModuleService extends TransactionBaseService {
   }
 
 
-   MergeCart = async (data: MergeCartParams , customer_id: string = '') => {
+   MergeCart = async (data: MergeCartParams ) => {
     const {    to_cart_id, from_cart_id  } = data;
 
     try {
-      const customer = await this.customerService_.retrieve(customer_id);
-      if (!customer) {
-        throw new MedusaError(MedusaError.Types.NOT_FOUND, 'Customer not found');
-      }
   
       const [toCart, fromCart] = await Promise.all([
         this.cartService_.retrieveWithTotals(to_cart_id ?? ''),
         this.cartService_.retrieveWithTotals(from_cart_id ?? ''),
       ]);
   
-      if (!toCart || to_cart_id !== customer.metadata?.cart_id) {
-        throw new MedusaError(MedusaError.Types.NOT_FOUND, 'First cart not found or invalid ID');
-      }
-  
+
       if (!fromCart) {
-        throw new MedusaError(MedusaError.Types.NOT_FOUND, 'Second cart not found');
+        throw new Error('Second cart not found');
       }
   
       const lineItemsToAdd = fromCart.items.map((item: { tax_lines: any; [key: string]: any }) => {

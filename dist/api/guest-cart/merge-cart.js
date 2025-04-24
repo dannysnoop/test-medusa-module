@@ -16,9 +16,8 @@ async function mergeCart(req, res, next) {
         const cacheService = medusaReq.scope.resolve('cacheService');
         const guestCartService = new guest_cart_1.GuestCartModuleService({ customerService, regionService, cacheService, cartService }, { jwt_secret: process.env.JWT_SECRET });
         const params = medusaReq.body;
-        const customer_id = medusaReq.user?.customer_id;
         // Call the mergeCarts method
-        const mergedCart = await guestCartService.MergeCart(params, customer_id);
+        const mergedCart = await guestCartService.MergeCart(params);
         // Respond with the merged cart
         res.status(200).json({ data: mergedCart });
     }
