@@ -9,6 +9,7 @@ interface Container {
 
 const setupApi = (container: Container): Application => {
     const app = express();
+    app.use(express.json());
     setupRoutes(app);
     return app;
 };
